@@ -1,8 +1,8 @@
-﻿using BulkyWeb.Data;
-using BulkyWeb.Models;
+﻿using Bulky.DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
+using Bulky.Models;
 
-namespace BulkyWeb.Controllers
+namespace Bulky.Controllers
 {
     public class CategoryController : Controller
     {
@@ -28,19 +28,19 @@ namespace BulkyWeb.Controllers
             //{
             //    ModelState.AddModelError("name", "Category Name cannot be same as Display Order");
             //}
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
                 TempData["success"] = "Category Created Successfully";
             }
-            
+
             return View();
         }
 
         public IActionResult Edit(int? id)
         {
-            if(id==null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
@@ -49,7 +49,7 @@ namespace BulkyWeb.Controllers
             //Category categoryFromDb1 = _db.Categories.FirstOrDefault(u=>u.Id == id);
             //Category categoryFromDb2 = _db.Categories.Where(u => u.Id == id).FirstOrDefault();
 
-            if(categoryFromDb == null)
+            if (categoryFromDb == null)
             {
                 return View();
             }
@@ -92,7 +92,7 @@ namespace BulkyWeb.Controllers
         public IActionResult DeletePOST(int? id)
         {
             Category? obj = _db.Categories.Find(id);
-            if(obj==null)
+            if (obj == null)
             {
                 return NotFound();
             }
