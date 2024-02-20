@@ -5,7 +5,7 @@
 namespace Bulky.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCategoryTabletoDb : Migration
+    public partial class addCategoryTabletoDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
