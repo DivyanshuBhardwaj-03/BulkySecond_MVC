@@ -6,6 +6,7 @@ using Bulky.DataAccess.Repository;
 
 namespace BulkyWeb.Areas.Admin.Controllers
 {
+    [Area(areaName: "Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
